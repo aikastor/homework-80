@@ -26,10 +26,10 @@ DROP TABLE IF EXISTS `item_categories`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `item_categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(45) NOT NULL,
+  `name` varchar(45) NOT NULL,
   `description` tinytext,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `item_categories` (
 
 LOCK TABLES `item_categories` WRITE;
 /*!40000 ALTER TABLE `item_categories` DISABLE KEYS */;
-INSERT INTO `item_categories` VALUES (1,'furniture','Tables, chairs and other stuff.'),(2,'computer equipment','Computers, monitors, keyboards and related equipment.'),(3,'household appliances','Microwaves, teapots, etc.'),(4,'stationery','Office stationery.'),(5,'test title','test description');
+INSERT INTO `item_categories` VALUES (1,'furniture','Tables, chairs and other stuff.'),(2,'computer equipment','Computers, monitors, keyboards and related equipment.'),(3,'household appliances','Microwaves, teapots, etc.'),(4,'stationery','Office stationery.'),(5,'testf title','test description'),(6,'test title','test description'),(7,'testf title','test description');
 /*!40000 ALTER TABLE `item_categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,7 +54,7 @@ CREATE TABLE `item_locations` (
   `name` varchar(45) NOT NULL,
   `description` tinytext,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,7 +63,7 @@ CREATE TABLE `item_locations` (
 
 LOCK TABLES `item_locations` WRITE;
 /*!40000 ALTER TABLE `item_locations` DISABLE KEYS */;
-INSERT INTO `item_locations` VALUES (1,'Office room 1',NULL),(2,'Office room 1',NULL),(3,'Office room 3',NULL),(4,'Office room CEO',NULL),(5,'Cafeteria',NULL),(6,'Conference hall',NULL);
+INSERT INTO `item_locations` VALUES (1,'Office room 1',NULL),(2,'Office room 1',NULL),(3,'Office room 3',NULL),(4,'Office room CEO',NULL),(5,'Cafeteria',NULL),(6,'Conference hall',NULL),(7,'edited test locations twice','test description');
 /*!40000 ALTER TABLE `item_locations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,4 +109,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-21 15:56:00
+-- Dump completed on 2020-02-22  2:18:08
