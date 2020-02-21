@@ -95,7 +95,7 @@ router.put('/:id', upload.single('image'), async (req,res) => {
           'UPDATE `items` SET ' +
           '`category_id` = ?, `location_id` = ?,' +
           '`name` =?, `date_added` =?,' +
-          '`description` =?,`image` =?'+
+          '`description` =?,`image` =? '+
           ' WHERE `id` = ?',
           [item.category_id, item.location_id, item.name,
             item.date_added, item.description, item.image,

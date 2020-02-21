@@ -7,7 +7,7 @@ const mysqlDb = require('../mysqlDb');
 const checkItem = async (itemID) => {
 
   const response = await mysqlDb.getConnection().query(
-      'SELECT * FROM `item_categories` WHERE `id` = ?', itemID
+      'SELECT * FROM `item_locations` WHERE `id` = ?', itemID
   );
 
   const item = response[0];
@@ -17,7 +17,7 @@ const checkItem = async (itemID) => {
 router.get('/', async (req,res) => {
 
   const items = await mysqlDb.getConnection().query(
-      'SELECT `id`, `name` from `item_categories`'
+      'SELECT `id`, `name` from `item_locations`'
   );
   res.send(items)
 });
@@ -38,7 +38,7 @@ router.post('/',async (req,res) => {
   if(category.name) {
 
     const result = await mysqlDb.getConnection().query(
-        'INSERT INTO `item_categories` ' +
+        'INSERT INTO `item_locations` ' +
         '(`name`, `description`) VALUES' +
         '(?, ?)',
         [category.name, category.description]
@@ -50,20 +50,21 @@ router.post('/',async (req,res) => {
   }
 });
 router.delete('/:id', async (req,res) => {
-    try {
-      const result = await mysqlDb.getConnection().query(
-          'DELETE FROM `item_categories`' +
-          'WHERE id = ?', req.params.id
-      );
-      res.send(result)
-    } catch (e) {
-      res.send(e)
-    }
+  try {
+    const result = await mysqlDb.getConnection().query(
+        'DELETE FROM `item_locations`' +
+        'WHERE id = ?', req.params.id
+    );
+    res.send(result)
+  } catch (e) {
+    res.send(e)
+  }
 
 });
 
 router.put('/:id', async (req,res) => {
   const category= req.body;
+
 
   if(category.name) {
 
@@ -71,7 +72,7 @@ router.put('/:id', async (req,res) => {
       res.status(404).send({message: 'Item not found!'})
     } else {
       const result = await mysqlDb.getConnection().query(
-          'UPDATE `item_categories` SET ' +
+          'UPDATE `item_locations` SET ' +
           '`name` =?, `description` = ?'+
           ' WHERE id = ?',
           [category.name, category.description, req.params.id]
@@ -83,5 +84,6 @@ router.put('/:id', async (req,res) => {
     res.status(400).send({message: 'Some data is missing!'})
   }
 });
+
 
 module.exports = router;
