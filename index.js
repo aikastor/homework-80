@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mysqlDb = require('./mysqlDb');
-const controllers = require('./controllers/index');
+const controllers = require('./controllers');
 
 const app = express();
 const port = 8000;
